@@ -1,50 +1,53 @@
 require 'bundler'
 require 'pry'
+
+#$:.unshift File.expand_path("./lib", __FILE__)
+
+require_relative 'lib/player.rb'
+require_relative 'lib/boardcase_update'
+require_relative 'lib/board_visualizer'
+require_relative 'lib/victory_calculator.rb'
+
 Bundler.require
 
-$:.unshift File.expand_path("./../lib", __FILE__)
+puts "-" * 35
+puts "WELCOME TO THE AMAZING TIC TACTIC GAME"
+puts "-" * 35
 
-# require_relative './lib/board.rb'
-require_relative './lib/victory_calculator'
-require_relative './lib/board_visualizer'
-require_relative './lib/player'
+puts "We need two players to play the game"
 
+puts "player 1's username:"
+puts ">"
 
-# puts "WELCOME TO THE AMAZING TIC TACTIC GAME"
+player1 = gets.chomp
 
-# puts "We need two players to play the game"
-
-# puts "player 1's username:"
-# puts ">"
-# player1 = gets.chomp
-
-# player1 = Player.new("player1")
+player1 = Player.new("player1")
+puts "You will play with the X"
 # sign1 = player1.choose_X_or_O
-# puts "Your sign is : #{choice}"
+# puts "#{player1} sign is : #{sign1}"
 
-# puts "Player 2's username"
-# player2 = gets.chomp
-# player2 = Player.new("player2")
-# if choice1 == "X"
-    
+sleep 1
 
- hash = { "A1" => "O", "A2" => "O", "A3" => "X",
-          "B1" => "X", "B2" => "O", "B3" => "X",
-          "C1" => "O", "C2" => "O", "C3" => "O" }
+puts "-" *30
+puts "Player 2's username"
+puts ">"
+player2 = gets.chomp
+player2 = Player.new("player2")
+puts "You will play with the O"
 
-
- result = VictoryCalculator.new(hash)
- visualize = BoardVisualizer.new(hash)
+sleep 1
 
 
-end
-    #METHODE WHO_START
-    
+def game_execution()
+    game = BoardCase.new
+    played = 0
+    until played == 9
+        game.tour("X")
+        game.tour("O")
+        played += 1
+    end
+end    
 
-    # INITIALIZE GAME
-    #return = boardcase
-
-#. Afficher le jeu vide depuis la classe boardcase update et de puis la méthode game choice
-#. On appelle la méthode
+game_execution
 
 
