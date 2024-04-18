@@ -1,7 +1,7 @@
 class Player
 
   def initialize(name)
-    @name = name
+    name = @name
   end
   
   def choose_X_or_O #(name)
@@ -20,7 +20,7 @@ class Player
                 #puts "your sign is #{sign}"
                 break
             else 
-                puts "You're wroooong, please pick a X or O"
+                puts "tut tut, please only pick X or O"
             end
         end
         @sign = sign
