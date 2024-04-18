@@ -29,14 +29,13 @@ class BoardCase
       @game_choices[@user_input] = arg #user.sign #soit X ou 0
     end
     puts "test3: #{@game_choices}"
-    check_victory(@game_choices)
 
     #update = BoardVisualizer.new()
   end
 
-  def check_victory(game_choices)
+  def Check_victory
 
-    value1 = game_choices["A1"]
+  value1 = hash["A1"]
     value2 = game_choices["A2"]
     value3 = game_choices["A3"]
     value4 = game_choices["A4"]
@@ -108,4 +107,7 @@ class BoardCase
     end
   end
 end
+
+
+  end
 end
